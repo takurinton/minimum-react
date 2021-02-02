@@ -1,9 +1,16 @@
+const path = require('path');
+
 module.exports = {
     mode: "development",
-    entry: "./src/main.tsx",
+    entry: "./src/app.tsx",
     output: {
-      path: `${__dirname}/dist`,
+      path: path.join(__dirname, 'dist'),
       filename: "[name].js"
+    },
+    devServer: {
+      contentBase: "dist",
+      open: true,
+      port: 3000,
     },
     module: {
       rules: [
@@ -17,4 +24,4 @@ module.exports = {
       extensions: [".ts", ".tsx", ".js", ".json"]
     },
     target: 'web',
-  };
+};
